@@ -1,14 +1,14 @@
 
 <style>
 .wrap{padding:1rem 0;font-size:13px}
-h2{font-size:20px;font-weight:500;color:var(--color-text-primary);margin:0 0 12px}
+h2{font-size:15px;font-weight:500;color:var(--color-text-primary);margin:0 0 12px}
 .cat{margin-bottom:14px;border:1px solid var(--color-border-tertiary);border-radius:10px;overflow:hidden}
-.cat-header{padding:9px 14px;font-weight:500;font-size:18px;color:var(--color-text-primary);display:flex;align-items:center;gap:8px;background:var(--color-background-secondary)}
+.cat-header{padding:9px 14px;font-weight:500;font-size:13px;color:var(--color-text-primary);display:flex;align-items:center;gap:8px;background:var(--color-background-secondary)}
 .cat-num{width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:500;flex-shrink:0}
 .cat-body{padding:6px 8px 8px}
 .item{display:flex;align-items:flex-start;gap:7px;padding:5px 6px;border-radius:6px;margin-bottom:3px;line-height:1.4;color:var(--color-text-primary)}
 .item:hover{background:var(--color-background-secondary)}
-.badge{flex-shrink:0;width:20px;height:20px;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:500;margin-top:1px}
+.badge{flex-shrink:0;width:20px;height:20px;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:500;margin-top:1px}
 .bs{background:#E1F5EE;color:#085041}.bw{background:#FAECE7;color:#4A1B0C}.bo{background:#E6F1FB;color:#042C53}.bt{background:#FAEEDA;color:#412402}
 .n1{background:#EEEDFE;color:#3C3489}.n2{background:#EAF3DE;color:#27500A}.n3{background:#F4C0D1;color:#72243E}
 .n4{background:#B5D4F4;color:#0C447C}.n5{background:#9FE1CB;color:#085041}.n6{background:#FAC775;color:#633806}
@@ -18,7 +18,9 @@ h2{font-size:20px;font-weight:500;color:var(--color-text-primary);margin:0 0 12p
 .alert{background:#FAEEDA;border-radius:8px;padding:8px 12px;font-size:12px;color:#633806;margin-bottom:14px;border:1px solid #EF9F27;line-height:1.5}
 </style>
 <div class="wrap">
-<h2>Categorização temática — Matriz SWOT (Região de Saúde Amor Perfeito)</h2>
+<h2>Categorização temática — Matriz SWOT (2ª equipe)</h2>
+
+<div class="alert">Categoria 7 sem nenhum item registrado — lacuna relevante a ser discutida com a equipe.</div>
 
 <div class="cat">
 <div class="cat-header"><span class="cat-num n1">1</span> Força de trabalho</div>
@@ -105,3 +107,194 @@ h2{font-size:20px;font-weight:500;color:var(--color-text-primary);margin:0 0 12p
 <span><span class="badge bt" style="display:inline-flex;width:16px;height:16px;font-size:9px">T</span> Ameaça</span>
 </div>
 </div>
+
+
+<style>
+*{box-sizing:border-box}
+.wrap{padding:1rem 0;font-size:13px;color:var(--color-text-primary)}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px}
+.quad{border-radius:10px;padding:12px 14px;cursor:pointer;border:1.5px solid transparent;transition:border-color .15s}
+.quad:hover{opacity:.88}
+.quad.active{border-color:var(--color-border-primary)}
+.q-so{background:#E1F5EE}.q-wo{background:#E6F1FB}.q-st{background:#FAEEDA}.q-wt{background:#FCEBEB}
+.q-label{font-size:11px;font-weight:500;letter-spacing:.04em;margin-bottom:4px}
+.q-so .q-label{color:#085041}.q-wo .q-label{color:#0C447C}.q-st .q-label{color:#633806}.q-wt .q-label{color:#791F1F}
+.q-title{font-size:13px;font-weight:500;color:var(--color-text-primary);margin-bottom:3px}
+.q-sub{font-size:11px;color:var(--color-text-secondary);line-height:1.4}
+.detail{border-radius:10px;border:1px solid var(--color-border-tertiary);overflow:hidden;margin-bottom:10px}
+.detail-head{padding:10px 14px;font-weight:500;font-size:13px;display:flex;align-items:center;gap:8px}
+.detail-body{padding:0 14px 12px}
+.action{display:flex;gap:10px;padding:8px 0;border-top:1px solid var(--color-border-tertiary);align-items:flex-start}
+.action:first-child{border-top:none;padding-top:4px}
+.act-num{flex-shrink:0;width:20px;height:20px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:500;margin-top:1px}
+.act-so .act-num{background:#9FE1CB;color:#085041}
+.act-wo .act-num{background:#B5D4F4;color:#0C447C}
+.act-st .act-num{background:#FAC775;color:#633806}
+.act-wt .act-num{background:#F7C1C1;color:#791F1F}
+.act-text{font-size:12px;line-height:1.5;color:var(--color-text-primary)}
+.act-rationale{font-size:11px;color:var(--color-text-secondary);margin-top:2px;line-height:1.4}
+.pill-row{display:flex;flex-wrap:wrap;gap:5px;margin-top:6px}
+.pill{font-size:10px;padding:2px 7px;border-radius:20px;font-weight:500}
+.pill-s{background:#E1F5EE;color:#085041}
+.pill-o{background:#E6F1FB;color:#0C447C}
+.pill-w{background:#FAECE7;color:#4A1B0C}
+.pill-t{background:#FAEEDA;color:#412402}
+.hint{font-size:11px;color:var(--color-text-tertiary);text-align:center;padding:6px 0}
+.urgency{display:inline-block;font-size:10px;font-weight:500;padding:2px 7px;border-radius:20px;background:#FCEBEB;color:#791F1F;margin-left:6px;vertical-align:middle}
+</style>
+<div class="wrap">
+<div class="grid">
+  <div class="quad q-so active" id="q-so" onclick="show('so')">
+    <div class="q-label">S + O — Alavancagem</div>
+    <div class="q-title">Usar forças para capturar oportunidades</div>
+    <div class="q-sub">Potencializar o que já funciona bem</div>
+  </div>
+  <div class="quad q-wo" id="q-wo" onclick="show('wo')">
+    <div class="q-label">W + O — Desenvolvimento</div>
+    <div class="q-title">Usar oportunidades para superar fraquezas</div>
+    <div class="q-sub">Transformar vulnerabilidades com recursos disponíveis</div>
+  </div>
+  <div class="quad q-st" id="q-st" onclick="show('st')">
+    <div class="q-label">S + T — Proteção</div>
+    <div class="q-title">Usar forças para neutralizar ameaças</div>
+    <div class="q-sub">Blindar o território com o que já tem</div>
+  </div>
+  <div class="quad q-wt" id="q-wt" onclick="show('wt')">
+    <div class="q-label">W + T — Minimização</div>
+    <div class="q-title">Reduzir fraquezas que amplificam ameaças</div>
+    <div class="q-sub">Ações de urgência e contenção</div>
+  </div>
+</div>
+
+<div id="detail-so" class="detail">
+  <div class="detail-head" style="background:#E1F5EE;color:#085041">Estratégia SO — Alavancagem</div>
+  <div class="detail-body">
+    <div class="action act-so">
+      <span class="act-num act-so">1</span>
+      <div>
+        <div class="act-text">Estruturar, com apoio formal da gestão, um programa de atividade física na academia ao ar livre integrado à equipe eMulti, com planejamento anual e metas populacionais definidas</div>
+        <div class="act-rationale">A gestão já apoia qualificações e há parceria saúde-esporte consolidada. A academia ao ar livre com educador físico é uma oportunidade concreta ainda não aproveitada sistematicamente. Juntar esses elementos cria uma oferta estruturada de AF sem custo adicional.</div>
+        <div class="pill-row"><span class="pill pill-s">Equipe eMulti diversificada</span><span class="pill pill-s">Gestão apoia qualificações</span><span class="pill pill-o">Academia ao ar livre</span><span class="pill pill-o">Parceria saúde-esporte</span></div>
+      </div>
+    </div>
+    <div class="action act-so">
+      <span class="act-num act-so">2</span>
+      <div>
+        <div class="act-text">Usar o canal direto com secretário e prefeito para formalizar e ampliar a parceria intersetorial saúde-educação-assistência social em ações de A&N</div>
+        <div class="act-rationale">Escuta ativa da gestão máxima é uma força rara — e o diálogo intersetorial já existente precisa ser formalizado em protocolo ou plano conjunto, para não depender de relações pessoais.</div>
+        <div class="pill-row"><span class="pill pill-s">Escuta ativa do gestor</span><span class="pill pill-o">Diálogo saúde-educação-assistência</span><span class="pill pill-o">Apoio financeiro às ações</span></div>
+      </div>
+    </div>
+    <div class="action act-so">
+      <span class="act-num act-so">3</span>
+      <div>
+        <div class="act-text">Propor ao secretário o uso do apoio financeiro disponível para capacitar toda a equipe eMulti em ações coletivas de A&N, superando o foco exclusivo em atendimento clínico</div>
+        <div class="act-rationale">Equipe eMulti completa + apoio financeiro + escuta da gestão = condição ideal para um ciclo de capacitação. O problema não é falta de profissionais, é falta de orientação para ações coletivas.</div>
+        <div class="pill-row"><span class="pill pill-s">Equipe eMulti ampla</span><span class="pill pill-s">Gestão receptiva</span><span class="pill pill-o">Apoio financeiro</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="detail-wo" class="detail" style="display:none">
+  <div class="detail-head" style="background:#E6F1FB;color:#0C447C">Estratégia WO — Desenvolvimento</div>
+  <div class="detail-body">
+    <div class="action act-wo">
+      <span class="act-num act-wo">1</span>
+      <div>
+        <div class="act-text">Usar o apoio financeiro disponível para contratar ou vincular nutricionista exclusivo à saúde, com cargo específico e carga horária dedicada — desvinculando das demandas da educação</div>
+        <div class="act-rationale">A fraqueza mais crítica desta equipe é não ter nutricionista (ou tê-lo com vínculo frágil e dividido). O apoio financeiro já existe. O que falta é a decisão política — e a gestão é receptiva.</div>
+        <div class="pill-row"><span class="pill pill-w">Sem nutricionista exclusivo</span><span class="pill pill-w">Vínculo frágil</span><span class="pill pill-o">Apoio financeiro disponível</span><span class="pill pill-o">Gestão receptiva</span></div>
+      </div>
+    </div>
+    <div class="action act-wo">
+      <span class="act-num act-wo">2</span>
+      <div>
+        <div class="act-text">Acionar a parceria com assistência social para suprir a ausência de assistente social na saúde, formalizando fluxo de referência e contrarreferência entre as secretarias</div>
+        <div class="act-rationale">Não tem assistente social na saúde, mas o diálogo intersetorial com a assistência social já existe. Em vez de esperar um concurso, formalizar o fluxo entre as secretarias resolve a lacuna no curto prazo.</div>
+        <div class="pill-row"><span class="pill pill-w">Sem assistente social na saúde</span><span class="pill pill-o">Diálogo saúde-assistência social</span><span class="pill pill-o">Parceria intersetorial</span></div>
+      </div>
+    </div>
+    <div class="action act-wo">
+      <span class="act-num act-wo">3</span>
+      <div>
+        <div class="act-text">Pautar com a gestão a resolução dos problemas de espaço físico e equipamentos usando o apoio financeiro — priorizando as UBS com maior demanda e precariedade identificada</div>
+        <div class="act-rationale">Fraquezas de infraestrutura (sem sala, sem equipamento) são resolvíveis com recurso financeiro, que está disponível. O caminho é transformar o diagnóstico em demanda formal e priorizada para o gestor.</div>
+        <div class="pill-row"><span class="pill pill-w">Sem sala / sem equipamento</span><span class="pill pill-w">Espaço inadequado</span><span class="pill pill-o">Apoio financeiro</span><span class="pill pill-s">Escuta da gestão</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="detail-st" class="detail" style="display:none">
+  <div class="detail-head" style="background:#FAEEDA;color:#633806">Estratégia ST — Proteção</div>
+  <div class="detail-body">
+    <div class="action act-st">
+      <span class="act-num act-st">1</span>
+      <div>
+        <div class="act-text">Usar o canal direto com secretário e prefeito para pautar formalmente o concurso público ou processo seletivo simplificado para nutricionista e assistente social na saúde</div>
+        <div class="act-rationale">Vínculos frágeis e ausência de concurso são ameaças estruturais que a escuta ativa da gestão pode enfrentar. A equipe tem a força do acesso direto — precisa usá-la com uma demanda concreta e documentada.</div>
+        <div class="pill-row"><span class="pill pill-s">Escuta ativa do gestor</span><span class="pill pill-t">Falta de concurso público</span><span class="pill pill-t">Vínculo frágil</span></div>
+      </div>
+    </div>
+    <div class="action act-st">
+      <span class="act-num act-st">2</span>
+      <div>
+        <div class="act-text">Mobilizar a parceria saúde-educação para reativar e fortalecer o Programa Saúde na Escola, com planejamento conjunto e cronograma anual firmado entre as secretarias</div>
+        <div class="act-rationale">PSE fragilizado é uma ameaça direta à A&N. A parceria intersetorial saúde-educação já existe e é uma força. Reativar o PSE formalmente transforma uma relação informal em política estruturada.</div>
+        <div class="pill-row"><span class="pill pill-s">Equipe eMulti diversificada</span><span class="pill pill-o">Diálogo saúde-educação</span><span class="pill pill-t">PSE fragilizado</span></div>
+      </div>
+    </div>
+    <div class="action act-st">
+      <span class="act-num act-st">3</span>
+      <div>
+        <div class="act-text">Negociar com a gestão apoio logístico (veículo, combustível, agendamento) para visitas domiciliares, usando a receptividade do secretário para resolver uma ameaça operacional concreta</div>
+        <div class="act-rationale">A falta de apoio logístico compromete toda a atenção domiciliar. A gestão é receptiva e há apoio financeiro — a solução não depende de política nacional, apenas de decisão local.</div>
+        <div class="pill-row"><span class="pill pill-s">Escuta ativa da gestão</span><span class="pill pill-o">Apoio financeiro disponível</span><span class="pill pill-t">Sem apoio logístico domiciliar</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="detail-wt" class="detail" style="display:none">
+  <div class="detail-head" style="background:#FCEBEB;color:#791F1F">Estratégia WT — Minimização <span class="urgency">urgência</span></div>
+  <div class="detail-body">
+    <div class="action act-wt">
+      <span class="act-num act-wt">1</span>
+      <div>
+        <div class="act-text">Realizar reunião estruturada da eMulti para redistribuir atribuições, separar formalmente ações coletivas de atendimento clínico e criar espaço de comunicação regular — antes que a sobrecarga gere evasão de profissionais</div>
+        <div class="act-rationale">Alta demanda + comunicação frágil + vínculo instável = risco real de colapso operacional. A reunião de pactuação interna é de custo zero e impacto imediato. Não precisa de recurso externo para acontecer.</div>
+        <div class="pill-row"><span class="pill pill-w">Alta demanda eMulti</span><span class="pill pill-w">Comunicação frágil</span><span class="pill pill-t">Vínculo frágil do nutricionista</span></div>
+      </div>
+    </div>
+    <div class="action act-wt">
+      <span class="act-num act-wt">2</span>
+      <div>
+        <div class="act-text">Mapear imediatamente quais UBS não têm sala, equipamento ou espaço adequado e apresentar o levantamento à gestão como demanda prioritária — evitando que a precariedade física paralise as ações antes de qualquer intervenção</div>
+        <div class="act-rationale">Sem sala e sem equipamento, a equipe — mesmo quando completa — não consegue funcionar. O mapeamento formaliza a lacuna e cria pressão legítima sobre a gestão para agir com o apoio financeiro disponível.</div>
+        <div class="pill-row"><span class="pill pill-w">Sem sala / sem equipamento</span><span class="pill pill-t">Espaço inadequado com equipe que cresceu</span><span class="pill pill-o">Apoio financeiro</span></div>
+      </div>
+    </div>
+    <div class="action act-wt">
+      <span class="act-num act-wt">3</span>
+      <div>
+        <div class="act-text">Acionar a parceria saúde-esporte para garantir que a academia seja efetivamente utilizada pelo educador físico — evitando que um recurso já existente continue sendo desperdiçado</div>
+        <div class="act-rationale">A academia existe mas não é usada pelo educador físico — é uma fraqueza operacional que se combina com a ameaça de falta de espaço para AF. Resolver isso não exige recurso novo, apenas articulação entre secretarias.</div>
+        <div class="pill-row"><span class="pill pill-t">Academia não utilizada</span><span class="pill pill-t">Falta espaço para AF</span><span class="pill pill-o">Parceria saúde-esporte</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="hint" id="hint" style="display:none">Clique em outro quadrante para ver a estratégia correspondente</div>
+</div>
+<script>
+const quads=['so','wo','st','wt'];
+function show(id){
+  quads.forEach(q=>{
+    document.getElementById('detail-'+q).style.display=q===id?'block':'none';
+    document.getElementById('q-'+q).classList.toggle('active',q===id);
+  });
+  document.getElementById('hint').style.display='block';
+}
+</script>
